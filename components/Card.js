@@ -5,11 +5,7 @@ class Card extends HTMLElement {
   
     connectedCallback() {
       this.innerHTML = `
-        <Card>
-          <nav>
-            <div><p>Kort</p></div>
-          </nav>
-        </Card>
+        <div><p>Kort</p></div>
       `;
     }
   }
