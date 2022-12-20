@@ -1,3 +1,23 @@
-.test{
-    color: red;
+:root{
+    --red: #e15554ff;
+    --blue: #345995ff;
+    --green: #03cea4ff;
+    --saffron: #e1bc29ff;
+    --black: #090909ff;
+}
+
+
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}
+.flex-column{
+    display: flex;
+    flex-direction: row;
+}
+button{
+    background-color: var(--blue);
+}
+.card{
+    background-color: var(--green);
 }
