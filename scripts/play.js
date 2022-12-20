@@ -20,6 +20,7 @@ function init(){
     getCards(params).then((result)=>{
         cards = result;
         console.log(cards);
+        updateCard();
     });
 }
 
