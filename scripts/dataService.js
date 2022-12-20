@@ -3,8 +3,9 @@ function testScript(){
     console.log("hei")
     //let data = readFile("/party-mime/database/test.txt");
     let subjects = readFile("/party-mime/database/subjects.csv");
-    subjects = convertToJSON(subjects);
-    console.log(subjects);
+    console.log(subjects)
+    let subjectsJSON = convertToJSON(subjects);
+    console.log(subjectsJSON);
 }
 
 
