@@ -20,7 +20,7 @@ function convertToJSON(data){
     let datatable = [];
     for(let i = 1; i < dataList.length; i++){
         let row = {};
-        let rowValues = split[i].split(",");
+        let rowValues = dataList[i].split(",");
         for(let j = 0; j < columns.length; j++){
             row[columns[j]] = rowValues[j];
         }
