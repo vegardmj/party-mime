@@ -24,6 +24,7 @@ button{
 .card{
     background-color: var(--green);
     max-width: 40vw;
+    min-height: 200px;
 }
 .select{
     max-width: 40vw;

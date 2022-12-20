@@ -8,7 +8,7 @@ class Card extends HTMLElement {
     connectedCallback() {
         let text = 'I am Card';
         let innerHTML = `
-            <div class="card">`;
+            <div class="card centered">`;
         //for(let content of this.contents){
             innerHTML += `<p>` + text + `</p>`
         //}
