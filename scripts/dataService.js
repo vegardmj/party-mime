@@ -2,11 +2,10 @@
 async function testScript(){
     console.log("hei")
     //let data = readFile("/party-mime/database/test.txt");
-    readFile("/party-mime/database/subjects.csv").then((result)=>{
-        console.log(result)
-        let subjectsJSON = convertToJSON(result);
-        console.log(subjectsJSON);
-    });
+    let subjects = readFile("/party-mime/database/subjects.csv")
+    console.log(subjects)
+    let subjectsJSON = convertToJSON(subjects);
+    console.log(subjectsJSON);
 }
 
 
@@ -39,9 +38,9 @@ function getVerbs(){
     return convertToJSON(data);
 }
 
-async function readFile(file){
+function readFile(file){
     console.log("readTextFile")
-    var rawFile = new XMLHttpRequest();
+    let rawFile = new XMLHttpRequest();
     rawFile.open("GET", file, false);
     rawFile.onreadystatechange = function ()
     {
@@ -49,7 +48,7 @@ async function readFile(file){
         {
             if(rawFile.status === 200 || rawFile.status == 0)
             {
-                var allText = rawFile.responseText;
+                let allText = rawFile.responseText;
                 console.log(allText);
                 return allText;
             }
