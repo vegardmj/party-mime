@@ -10,6 +10,11 @@ async function testScript(){
 }
 
 
+function readFileDummy(folder){
+    let path = "/party-mime/database/" + folder + "/subjects.csv";
+    let subjects = readFile(path);
+}
+
 
 
 
