@@ -22,7 +22,7 @@ button{
     background-color: var(--blue);
 }
 .card{
-    background-color: var(--green);
+    background-color: var(--blue);
     max-width: 40vw;
     min-height: 200px;
 }
