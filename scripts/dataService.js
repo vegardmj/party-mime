@@ -2,10 +2,11 @@
 async function testScript(){
     console.log("hei")
     //let data = readFile("/party-mime/database/test.txt");
-    let subjects = await readFile("/party-mime/database/subjects.csv");
-    console.log(subjects)
-    let subjectsJSON = convertToJSON(subjects);
-    console.log(subjectsJSON);
+    readFile("/party-mime/database/subjects.csv").then((result)=>{
+        console.log(result)
+        let subjectsJSON = convertToJSON(result);
+        console.log(subjectsJSON);
+    });
 }
 
 
