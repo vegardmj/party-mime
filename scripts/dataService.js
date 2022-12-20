@@ -8,13 +8,16 @@ function getCards(params){
                 resolve('Success');
             }
             else{
-                reject('Failed');
+                reject('Failed!');
             }
         });
       
     myPromise.then((value) => {
         console.log(value);
     });
+    myPromise.catch((err)=>{
+        alert(err + ' Could not find data');
+    })
 }
 
 
