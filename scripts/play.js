@@ -2,7 +2,6 @@
 var iterator = 0;
 var cards = [];
 
-init_1();
 
 function init_1(){
     cards = [
@@ -46,3 +45,6 @@ function updateCard(){
     console.log(el)
     el.innerHTML = cards[iterator];
 }
+
+
+init_1();
