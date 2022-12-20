@@ -17,17 +17,11 @@ console.log(params);
 readFileDummy(params.chosen)
 updateCard();
 
-
-
-function gotoHome(){
-    location.href = "/party-mime/";
-}
-
 function newCard(){
     iterator += 1;
     if(iterator >= cards.length){
         alert('This was the last Card')
-        gotoHome();
+        location.href = "/party-mime/";
     }
     else{
         updateCard();
