@@ -11,11 +11,11 @@ function getCards(params){
         }
     });
       
-    myPromise.catch((err)=>{
-        console.log(err + ' Could not find data');
-    });
     myPromise.then((value) => {
         console.log(value);
+    });
+    myPromise.catch((err)=>{
+        console.log(err + ' Could not find data');
     });
 }
 
