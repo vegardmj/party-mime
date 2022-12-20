@@ -11,6 +11,7 @@ function readFile(file){
     console.log("readTextFile", file)
     fetch(file).then((content) => {
         console.log(content);
+        console.log(content.text());
         return content.text();
     });
 }
