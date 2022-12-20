@@ -42,5 +42,7 @@ function newCard(){
 }
 
 function updateCard(){
-    document.getElementById("card").innerHTML = cards[iterator];
+    let el = document.getElementById("card");
+    console.log(el)
+    el.innerHTML = cards[iterator];
 }
