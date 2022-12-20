@@ -22,11 +22,23 @@ function getCards(params){
 
 function readFile(file){
     console.log("readTextFile", file)
-    fetch(file).then((content) => {
+    let myPromise = new Promise((resolve, reject)=>{
+        let content = fetch(file);
+        if(content != undefined){
+            resolve(content);
+        }
+        else{
+            reject('failed')
+        }
+    })
+    myPromise.then((content) => {
         let temp = content.text();
         console.log(temp);
         return temp;
     });
+    myPromise.catch((err)=>{
+        console.log(err)
+    })
 }
 
 
