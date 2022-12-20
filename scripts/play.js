@@ -10,7 +10,8 @@ function init_1(){
         'Jeff',
         'Lich'
     ];
-    updateCard();
+    iterator = -1;
+    //updateCard();
 }
 function getParams(){
     let paramString = location.href.split("?")[1];
