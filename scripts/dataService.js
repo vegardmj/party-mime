@@ -21,6 +21,7 @@ function readFile(file){
                 let allText = rawFile.responseText;
                 let temp = convertToJSON(allText);
                 content = temp;
+                console.log('temp', temp)
                 return temp;
             }
         }
