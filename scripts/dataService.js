@@ -5,7 +5,9 @@ function getCards(params){
         console.log("readFile.then(value)", value);
         let jsonList = convertToJSON(value);
         console.log("readFile.then(convertToJSON(value))", jsonList);
-        return shuffleArray(jsonList);
+        return new Promise((resolve, reject)=>{
+            return jsonList;
+        });
     })
     .catch((err)=>{
         console.log(err + ' Could not find data');
