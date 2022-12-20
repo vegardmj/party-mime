@@ -1,8 +1,10 @@
 
 function testScript(){
     console.log("hei")
-    readFile("/party-mime/database/test.txt");
-    readFile("/party-mime/database/subjects.csv");
+    let data = readFile("/party-mime/database/test.txt");
+    let subjects = readFile("/party-mime/database/subjects.csv");
+    subjects = convertToJSON(subjects);
+    console.log(subjects);
 }
 
 
@@ -46,7 +48,7 @@ function readFile(file){
             {
                 var allText = rawFile.responseText;
                 console.log(allText);
-                //return convertToJSON(allText);
+                return allText;
             }
         }
     }
