@@ -12,8 +12,8 @@ function testScript(){
 
 
 function convertToJSON(data){
-    let split = data.split(";");
-    let columns = split[0].split(",");
+    let dataList = data.split(";");
+    let columns = dataList[0].split(",");
     let datatable = [];
     for(let i = 1; i < split.length; i++){
         let row = {};
