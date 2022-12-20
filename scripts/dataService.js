@@ -3,9 +3,9 @@ function getCards(params){
     let path = "/party-mime/database/" + params.folder + "/subjects.csv";
     let myPromise = new Promise(
         (resolve, reject) => {
-            let fileContent = readFile(path);
+            let fileContent = 'readFile(path)';
             if(fileContent != undefined){
-                resolve('Success');
+                resolve('Success' + fileContent);
             }
             else{
                 reject('Failed!');
