@@ -11,15 +11,14 @@ function getCards(params){
         }
     });
     
-    myPromise.then(
+    rawFile.then(
         function(data) {
+            console.log('rawFile', rawFile)
+            console.log('data', data)
             return data;
         },
         function() {alert('Could not load data')}
     );
-
-
-    console.log('rawFile', rawFile)
 }
 
 
