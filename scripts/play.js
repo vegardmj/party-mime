@@ -17,9 +17,11 @@ function getParams(){
     let paramString = location.href.split("?")[1];
     let paramStrings = paramString?.split("&");
     let params = {};
-    for(let parStr of paramStrings){
-        let temp = parStr.split("=");
-        params[temp[0]] = temp[1];
+    if(paramStrings){
+        for(let parStr of paramStrings){
+            let temp = parStr.split("=");
+            params[temp[0]] = temp[1];
+        }
     }
     return params;
 }
