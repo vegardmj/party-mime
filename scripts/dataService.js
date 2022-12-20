@@ -3,7 +3,7 @@ function getCards(params){
     let path = "/party-mime/database/" + params.folder + "/subjects.csv";
     return new Promise((resolve, reject)=>{
         let result = readFile(path).then((value) => {
-            let jsonList = convertToJSON(value);
+            let jsonList = shuffleArray(convertToJSON(value));
             console.log("readFile.then(convertToJSON(value))", jsonList);
             return jsonList;
         })
