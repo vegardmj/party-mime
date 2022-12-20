@@ -48,9 +48,8 @@
             function newCard(){
                 iterator += 1;
                 if(iterator >= cards.length){
-                    alert('This was the last Card').then(()=>{
-                        gotoHome();
-                    })
+                    alert('This was the last Card')
+                    gotoHome();
                 }
                 else{
                     updateCard();
