@@ -10,8 +10,18 @@ function testScript(){
 
 
 function convertToJSON(data){
-    let 
-    return [];
+    let split = data.split(";\n");
+    let columns = split[0].split(",");
+    let datatable = [];
+    for(let i = 1; i < split.length; i++){
+        let row = {};
+        let rowValues = split[i].split(",");
+        for(let j = 0; j < columns.length; j++){
+            row[columns[j]] = rowValues[j];
+        }
+        datatable.push(row);
+    }
+    return datatable;
 }
 
 
@@ -36,7 +46,7 @@ function readFile(file){
             {
                 var allText = rawFile.responseText;
                 console.log(allText);
-                return convertToJSON(allText);
+                //return convertToJSON(allText);
             }
         }
     }
