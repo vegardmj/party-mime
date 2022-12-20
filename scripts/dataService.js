@@ -1,7 +1,9 @@
 
 function getCards(params){
     let path = "/party-mime/database/" + params.folder + "/subjects.csv";
-    let myPromise = new Promise(readFile(path));
+    let myPromise = new Promise(function(myResolve, myReject) {
+        readFile(path);
+      });
       
     myPromise.then(function(value) {
         console.log(value);
@@ -13,7 +15,7 @@ function readFile(file){
     console.log("readTextFile", file)
     fetch(file).then((content) => {
         let temp = content.text();
-        console.log('temp', temp);
+        console.log(temp);
         return temp;
     });
 }
