@@ -1,7 +1,7 @@
 class Card extends HTMLElement {
     constructor(...args) {
+        super();
         this.contents = args;
-      super();
     }
 
     contents;
