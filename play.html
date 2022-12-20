@@ -13,18 +13,27 @@
     <body>
         <div>
             <button onclick="gotoHome()">BackToHome</button>
-            <div class="test">YOU ARE PLAYING</div>
+            <h1>YOU ARE PLAYING</h1>
         </div>
 
         <div class="centered">
-            <card-component derp="hey">heihei</card-component> 
+            <!--card-component derp="hey">heihei</card-component--> 
+            <div onclick="newCard()" class="card centered">
+                <p id="card"></p>
+            </div>
         </div>
 
         <script>
             function gotoHome(){
                 location.href = "/party-mime/";
             }
-
+            let iterator = 0;
+            let cards = [
+                'Mathew Mercer',
+                'Brennan Lee Mulligan',
+                'Jeff',
+                'Lich'
+            ];
             let paramString = location.href.split("?")[1];
             let paramStrings = paramString?.split("&");
             let params = {};
@@ -33,7 +42,21 @@
                 params[temp[0]] = temp[1];
             }
             console.log(params);
-            readFileDummy(params.chosen);
+            readFileDummy(params.chosen)
+            updateCard();
+
+            function newCard(){
+                iterator += 1;
+                if(iterator >= cards.length){
+                    alert('This was the last Card').then(()=>{
+                        gotoHome();
+                    })
+                }
+            }
+            function updateCard(){
+                document.getElementById("card").innerHTML = cards[iterator];
+            }
+
         </script>
     </body>
 </html>
