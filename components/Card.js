@@ -7,11 +7,12 @@ class Card extends HTMLElement {
     contents;
   
     connectedCallback() {
+        let text = 'I am Card';
         let innerHTML = `
             <div class="card">`;
-        for(let content of this.contents){
-            innerHTML += `<p>` + content + `</p>`
-        }
+        //for(let content of this.contents){
+            innerHTML += `<p>` + text + `</p>`
+        //}
         innerHTML += `</div>`;
       this.innerHTML = innerHTML;
     }
