@@ -12,6 +12,7 @@ function testScript(){
 
 
 function convertToJSON(data){
+    console.log('data', data);
     let dataList = data.split(";");
     let columns = dataList[0].split(",");
     let datatable = [];
