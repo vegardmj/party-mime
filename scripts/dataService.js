@@ -1,28 +1,35 @@
 
 function getCards(params){
     let path = "/party-mime/database/" + params.folder + "/subjects.csv";
-    let subjects = readFile(path);
-    console.log('subjects', subjects)
+    let rawFile = new Promise(function(myResolve, myReject) {
+        
+        let data = readFile(path);
+        if (data) {
+            myResolve(data);
+        } else {
+            myReject();
+        }
+    });
+    
+    myPromise.then(
+        function(data) {
+            return data;
+        },
+        function() {alert('Could not load data')}
+    );
+
+
+    console.log('rawFile', rawFile)
 }
 
 
 function readFile(file){
     console.log("readTextFile", file)
     fetch (file).then((content) => {
-        let temp = content.text();
-        console.log(temp);
+        return content.text();
     });
 }
 
-function shuffleArray(array){
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      const temp = array[i];
-      array[i] = array[j];
-      array[j] = temp;
-    }
-    return array;
-}
 
 function convertToJSON(data){
     console.log('convertToJSON');
@@ -38,6 +45,16 @@ function convertToJSON(data){
         datatable.push(row);
     }
     return datatable;
+}
+
+function shuffleArray(array){
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array;
 }
 
 function combineArrays(array1, array2){
