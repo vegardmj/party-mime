@@ -6,10 +6,17 @@
     --black: #090909ff;
 }
 
+html{
+    height: 100%;
+}
+body{
+    height: 100%;
+}
 .centered{
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
 }
 .flex-row{
     display: flex;
