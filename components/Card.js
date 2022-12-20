@@ -1,12 +1,19 @@
 class Card extends HTMLElement {
-    constructor() {
+    constructor(...args) {
+        this.contents = args;
       super();
     }
+
+    contents;
   
     connectedCallback() {
-      this.innerHTML = `
-        <div><p>Kort</p></div>
-      `;
+        let innerHTML = `
+            <div class="card">`;
+        for(let content of this.contents){
+            innerHTML += `<p>` + content + `</p>`
+        }
+        innerHTML += `</div>`;
+      this.innerHTML = innerHTML;
     }
   }
   
