@@ -2,7 +2,9 @@
 function getCards(params){
     let path = "/party-mime/database/" + params.folder + "/subjects.csv";
     readFile(path).then((value) => {
+        console.log("readFile.then(value)", value);
         let jsonList = convertToJSON(value);
+        console.log("readFile.then(convertToJSON(value))", jsonList);
         return shuffleArray(jsonList);
     })
     .catch((err)=>{
