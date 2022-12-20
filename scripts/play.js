@@ -32,8 +32,9 @@ function test1(){
 
 function init(){
     let params = getParams();
-    cards = getCards(params)
-    updateCard();
+    getCards(params).then((result)=>{
+        cards = result;
+    })
 }
 
 function newCard(){
@@ -49,7 +50,7 @@ function newCard(){
 
 function updateCard(){
     let el = document.getElementById("card");
-    el.innerHTML = 'cards[iterator]';
+    el.innerHTML = cards[iterator].value;
 }
 
 
