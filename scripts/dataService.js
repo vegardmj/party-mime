@@ -12,7 +12,7 @@ function testScript(){
 
 
 function convertToJSON(data){
-    let split = data.split(";\n");
+    let split = data.split(";");
     let columns = split[0].split(",");
     let datatable = [];
     for(let i = 1; i < split.length; i++){
