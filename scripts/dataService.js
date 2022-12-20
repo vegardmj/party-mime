@@ -1,24 +1,9 @@
 
 function getCards(params){
     let path = "/party-mime/database/" + params.folder + "/subjects.csv";
-    let rawFile = new Promise(function(myResolve, myReject) {
-        
-        let data = readFile(path);
-        if (data) {
-            myResolve(data);
-        } else {
-            myReject();
-        }
-    });
-    
-    rawFile.then(
-        function(data) {
-            console.log('rawFile', rawFile)
-            console.log('data', data)
-            return data;
-        },
-        function() {alert('Could not load data')}
-    );
+    readFile(path).then((result)=>{
+        console.log(result);
+    })
 }
 
 
