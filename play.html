@@ -52,8 +52,12 @@
                         gotoHome();
                     })
                 }
+                else{
+                    updateCard();
+                }
             }
             function updateCard(){
+                console.log('updateCard')
                 document.getElementById("card").innerHTML = cards[iterator];
             }
 
