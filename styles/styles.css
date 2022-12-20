@@ -6,14 +6,17 @@
     --black: #090909ff;
 }
 
-
+.centered{
+    justify-content: center;
+    align-items: center;
+}
 .flex-row{
     display: flex;
     flex-direction: row;
 }
 .flex-column{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 button{
     background-color: var(--blue);
