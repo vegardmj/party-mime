@@ -5,5 +5,5 @@ function gotoPlay(){
             chosen = option.value;
         }
     })
-    location.href = "/party-mime/pages/play.html?chosen=" + chosen;
+    location.href = "/party-mime/play.html?chosen=" + chosen;
 }
