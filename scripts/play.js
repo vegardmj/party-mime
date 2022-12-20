@@ -24,6 +24,10 @@ function getParams(){
     return params;
 }
 
+function test1(){
+    init();
+}
+
 function init(){
     let params = getParams();
     cards = getCards(params)
