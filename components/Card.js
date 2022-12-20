@@ -1,11 +1,6 @@
 class Card extends HTMLElement {
-    constructor(...args) {
+    constructor() {
         super();
-        console.log("...args", args)
-    }
-
-    get contents() {
-      return this.contents.getAttribute('contents');
     }
   
     set derp(val) {
@@ -14,6 +9,7 @@ class Card extends HTMLElement {
   
     connectedCallback() {
         let text = 'I am Card';
+        console.log('this.derp', this.derp);
         let innerHTML = `
             <div class="card centered">`;
         //for(let content of this.contents){
