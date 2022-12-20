@@ -1,8 +1,15 @@
 class Card extends HTMLElement {
-    constructor(derp) {
+    constructor(...args) {
         super();
-        console.log("...args", derp)
-        this.derp = derp;
+        console.log("...args", args)
+    }
+
+    get contents() {
+      return this.contents.getAttribute('contents');
+    }
+  
+    set derp(val) {
+        this.setAttribute('derp', val);
     }
   
     connectedCallback() {
