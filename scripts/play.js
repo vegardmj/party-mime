@@ -1,9 +1,11 @@
 
+var iterator = 0;
+var cards = [];
+
 init_1();
 
 function init_1(){
-    var iterator = 0;
-    var cards = [
+    cards = [
         'Mathew Mercer',
         'Brennan Lee Mulligan',
         'Jeff',
@@ -23,9 +25,8 @@ function getParams(){
 }
 
 function init(){
-    var iterator = 0;
     let params = getParams();
-    var cards = getCards(params)
+    cards = getCards(params)
     updateCard();
 }
 
