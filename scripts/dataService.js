@@ -3,7 +3,7 @@ async function testScript(){
     console.log("hei")
     //let data = readFile("/party-mime/database/test.txt");
     let subjects = readFile("/party-mime/database/subjects.csv")
-    console.log(subjects)
+    console.log('subjects', subjects)
     //let subjectsJSON = convertToJSON(subjects);
     let subjectsJSON = convertToJSON("value,dirty,complex;hitler,7,2;");
     console.log(subjectsJSON);
@@ -51,7 +51,7 @@ function readFile(file){
             {
                 let allText = rawFile.responseText;
                 console.log(allText);
-                return allText;
+                return convertToJSON(allText);
             }
         }
     }
