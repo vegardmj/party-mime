@@ -12,7 +12,7 @@ function getCards(params){
     });
       
     myPromise.catch((err)=>{
-        alert(err + ' Could not find data');
+        console.log(err + ' Could not find data');
     });
     myPromise.then((value) => {
         console.log(value);
