@@ -32,9 +32,7 @@ function test1(){
 
 function init(){
     let params = getParams();
-    getCards(params).then((result)=>{
-        cards = result;
-    })
+    cards = getCards(params);
 }
 
 function newCard(){
