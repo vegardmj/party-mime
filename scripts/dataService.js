@@ -33,11 +33,13 @@ function readFile(file){
 function convertToJSON(data){
     console.log('convertToJSON');
     let dataList = data.split(";");
+    let rows = dataList;
     let columns = dataList[0].split(",");
     let datatable = [];
-    for(let i = 1; i < dataList.length; i++){
+    console.log('columns', columns);
+    for(let i = 1; i < rows.length; i++){
         let row = {};
-        let rowValues = dataList[i].split(",");
+        let rowValues = rows[i].split(",");
         for(let j = 0; j < columns.length; j++){
             row[columns[j]] = rowValues[j];
         }
