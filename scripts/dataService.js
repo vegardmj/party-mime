@@ -1,7 +1,7 @@
 
 function testScript(){
     console.log("hei")
-    readTextFile("../database/test.txt");
+    readTextFile("/database/test.txt");
 }
 
 
