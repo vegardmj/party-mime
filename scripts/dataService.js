@@ -1,12 +1,10 @@
 
 function getCards(params){
     let path = "/party-mime/database/" + params.folder + "/subjects.csv";
-    let myPromise = readFile(path);
-      
-    myPromise.then((value) => {
+    readFile(path).then((value) => {
         console.log(value);
-    });
-    myPromise.catch((err)=>{
+    })
+    .catch((err)=>{
         console.log(err + ' Could not find data');
     });
 }
