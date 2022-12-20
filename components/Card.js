@@ -1,5 +1,6 @@
 class Card extends HTMLElement {
     constructor(...args) {
+        super();
         console.log("...args", args)
         this.contents = args;
     }
