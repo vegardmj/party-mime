@@ -32,7 +32,7 @@ function readFile(file){
 
 function convertToJSON(data){
     console.log('convertToJSON');
-    let dataList = data.split(";");
+    let dataList = data.split("\n");
     let rows = dataList;
     let columns = dataList[0].split(",");
     let datatable = [];
