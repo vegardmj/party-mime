@@ -1,7 +1,7 @@
 
 function getCards(params){
     let path = "/party-mime/database/" + params.folder + "/subjects.csv";
-    readFile(path).then((result)=>{
+    new Promise(readFile(path)).then((result)=>{
         console.log(result);
     })
 }
