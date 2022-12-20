@@ -1,8 +1,8 @@
 
-function testScript(){
+async function testScript(){
     console.log("hei")
     //let data = readFile("/party-mime/database/test.txt");
-    let subjects = readFile("/party-mime/database/subjects.csv");
+    let subjects = await readFile("/party-mime/database/subjects.csv");
     console.log(subjects)
     let subjectsJSON = convertToJSON(subjects);
     console.log(subjectsJSON);
@@ -38,7 +38,7 @@ function getVerbs(){
     return convertToJSON(data);
 }
 
-function readFile(file){
+async function readFile(file){
     console.log("readTextFile")
     var rawFile = new XMLHttpRequest();
     rawFile.open("GET", file, false);
