@@ -3,7 +3,7 @@ async function testScript(){
     console.log("hei")
     //let data = readFile("/party-mime/database/test.txt");
     let subjects = readFile("/party-mime/database/subjects.csv")
-    console.log('subjects', subjects)
+    console.log('subjects TEST', subjects)
     //let subjectsJSON = convertToJSON(subjects);
     let subjectsJSON = convertToJSON("value,dirty,complex;hitler,7,2;");
     console.log(subjectsJSON);
@@ -13,14 +13,14 @@ async function testScript(){
 function readFileDummy(folder){
     let path = "/party-mime/database/" + folder + "/subjects.csv";
     let subjects = readFile(path);
-    console.log(subjects)
+    console.log('subjects', subjects)
 }
 
 
 
 
 function convertToJSON(data){
-    console.log('data', data);
+    console.log('convertToJSON');
     let dataList = data.split(";");
     let columns = dataList[0].split(",");
     let datatable = [];
@@ -56,7 +56,6 @@ function readFile(file){
             if(rawFile.status === 200 || rawFile.status == 0)
             {
                 let allText = rawFile.responseText;
-                console.log(allText);
                 return convertToJSON(allText);
             }
         }
