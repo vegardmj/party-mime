@@ -14,11 +14,14 @@ function readFile(file){
     rawFile.open("GET", file, false);
     rawFile.onreadystatechange = function ()
     {
+        console.log('rawFile.onreadystatechange');
         if(rawFile.readyState === 4)
         {
             if(rawFile.status === 200 || rawFile.status == 0)
             {
+                console.log('setting stuff');
                 let allText = rawFile.responseText;
+                console.log('allText', allText)
                 let temp = convertToJSON(allText);
                 content = temp;
                 console.log('temp', temp)
