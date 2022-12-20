@@ -1,7 +1,8 @@
 
 function testScript(){
     console.log("hei")
-    readTextFile("/party-mime/database/test.txt");
+    readFile("/party-mime/database/test.txt");
+    readFile("/party-mime/database/subjects.csv");
 }
 
 
@@ -9,25 +10,21 @@ function testScript(){
 
 
 function convertToJSON(data){
+    let 
     return [];
 }
 
 
 function getSubjects(){
-    let data = readFile("../database/", "subjects.xls");
+    let data = readFile("/party-mime/database/test.txt");
     return convertToJSON(data);
 }
 function getVerbs(){
-    let data = readFile("../database/", "verbs.xls");
+    let data = readFile("/party-mime/database/test.txt");
     return convertToJSON(data);
 }
 
-function readFile(path, filename){
-    return null;
-}
-
-function readTextFile(file)
-{
+function readFile(file){
     console.log("readTextFile")
     var rawFile = new XMLHttpRequest();
     rawFile.open("GET", file, false);
@@ -38,7 +35,8 @@ function readTextFile(file)
             if(rawFile.status === 200 || rawFile.status == 0)
             {
                 var allText = rawFile.responseText;
-                alert(allText);
+                console.log(allText);
+                return convertToJSON(allText);
             }
         }
     }
