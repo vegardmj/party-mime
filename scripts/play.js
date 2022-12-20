@@ -2,17 +2,6 @@
 var iterator = 0;
 var cards = [];
 
-
-function init_1(){
-    cards = [
-        'Mathew Mercer',
-        'Brennan Lee Mulligan',
-        'Jeff',
-        'Lich'
-    ];
-    iterator = -1;
-    //updateCard();
-}
 function getParams(){
     let paramString = location.href.split("?")[1];
     let paramStrings = paramString?.split("&");
@@ -24,10 +13,6 @@ function getParams(){
         }
     }
     return params;
-}
-
-function test1(){
-    init();
 }
 
 function init(){
@@ -53,3 +38,5 @@ function updateCard(){
     let el = document.getElementById("card");
     el.innerHTML = cards[iterator].value;
 }
+
+init();
