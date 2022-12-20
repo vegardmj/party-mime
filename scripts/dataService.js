@@ -1,23 +1,39 @@
 
-async function testScript(){
-    console.log("hei")
-    //let data = readFile("/party-mime/database/test.txt");
-    let subjects = readFile("/party-mime/database/subjects.csv")
-    console.log('subjects TEST', subjects)
-    //let subjectsJSON = convertToJSON(subjects);
-    let subjectsJSON = convertToJSON("value,dirty,complex;hitler,7,2;");
-    console.log(subjectsJSON);
-}
-
-
-function readFileDummy(folder){
-    let path = "/party-mime/database/" + folder + "/subjects.csv";
+function getCards(params){
+    let path = "/party-mime/database/" + params.folder + "/subjects.csv";
     let subjects = readFile(path);
     console.log('subjects', subjects)
+
 }
 
+function readFile(file){
+    console.log("readTextFile")
+    let rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                let allText = rawFile.responseText;
+                let temp = convertToJSON(allText);
+                return temp;
+            }
+        }
+    }
+    rawFile.send(null);
+}
 
-
+function shuffleArray(array){
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array;
+}
 
 function convertToJSON(data){
     console.log('convertToJSON');
@@ -33,44 +49,6 @@ function convertToJSON(data){
         datatable.push(row);
     }
     return datatable;
-}
-
-
-function getSubjects(){
-    let data = readFile("/party-mime/database/test.txt");
-    return convertToJSON(data);
-}
-function getVerbs(){
-    let data = readFile("/party-mime/database/test.txt");
-    return convertToJSON(data);
-}
-
-function readFile(file){
-    console.log("readTextFile")
-    let rawFile = new XMLHttpRequest();
-    rawFile.open("GET", file, false);
-    rawFile.onreadystatechange = function ()
-    {
-        if(rawFile.readyState === 4)
-        {
-            if(rawFile.status === 200 || rawFile.status == 0)
-            {
-                let allText = rawFile.responseText;
-                return convertToJSON(allText);
-            }
-        }
-    }
-    rawFile.send(null);
-}
-
-function shuffleArray(array){
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      const temp = array[i];
-      array[i] = array[j];
-      array[j] = temp;
-    }
-    return array;
 }
 
 function combineArrays(array1, array2){

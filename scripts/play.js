@@ -1,21 +1,32 @@
+init_1();
 
-let iterator = 0;
-let cards = [
-    'Mathew Mercer',
-    'Brennan Lee Mulligan',
-    'Jeff',
-    'Lich'
-];
-let paramString = location.href.split("?")[1];
-let paramStrings = paramString?.split("&");
-let params = {};
-for(let parStr of paramStrings){
-    let temp = parStr.split("=");
-    params[temp[0]] = temp[1];
+function init_1(){
+    var iterator = 0;
+    var cards = [
+        'Mathew Mercer',
+        'Brennan Lee Mulligan',
+        'Jeff',
+        'Lich'
+    ];
+    updateCard();
 }
-console.log(params);
-readFileDummy(params.chosen)
-updateCard();
+function getParams(){
+    let paramString = location.href.split("?")[1];
+    let paramStrings = paramString?.split("&");
+    let params = {};
+    for(let parStr of paramStrings){
+        let temp = parStr.split("=");
+        params[temp[0]] = temp[1];
+    }
+    return params;
+}
+
+function init(){
+    var iterator = 0;
+    let params = getParams();
+    var cards = getCards(params)
+    updateCard();
+}
 
 function newCard(){
     iterator += 1;
@@ -29,6 +40,5 @@ function newCard(){
 }
 
 function updateCard(){
-    console.log('updateCard')
     document.getElementById("card").innerHTML = cards[iterator];
 }
