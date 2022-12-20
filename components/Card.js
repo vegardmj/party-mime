@@ -1,8 +1,8 @@
 class Card extends HTMLElement {
-    constructor(...args) {
+    constructor(derp) {
         super();
-        console.log("...args", args)
-        this.derp = args;
+        console.log("...args", derp)
+        this.derp = derp;
     }
   
     connectedCallback() {
