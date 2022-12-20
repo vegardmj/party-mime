@@ -21,6 +21,10 @@
 }
 button{
     background-color: var(--blue);
+    border: 0;
+    border-radius: 2px;
+    min-height: 2rem;
+    min-width: 4rem;
 }
 .card{
     background-color: var(--blue);
