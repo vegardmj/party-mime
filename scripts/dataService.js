@@ -3,6 +3,8 @@ function getCards(params){
     let path = "/party-mime/database/" + params.folder + "/subjects.csv";
     readFile(path).then((value) => {
         console.log(value);
+        let temp = value.text();
+        console.log(temp);
     })
     .catch((err)=>{
         console.log(err + ' Could not find data');
