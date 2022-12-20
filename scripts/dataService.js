@@ -14,8 +14,9 @@ function getCards(params){
 function readFile(file){
     console.log("readTextFile", file)
     fetch(file).then((content) => {
-        console.log(content);
-        return content.text();
+        let temp = content.text();
+        console.log(temp);
+        return temp;
     });
 }
 
