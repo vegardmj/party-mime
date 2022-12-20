@@ -22,12 +22,18 @@
             <h1>Party Mime</h1>
         
             <h2>Settings</h2>
-            <label for="is-subject">Subjects</label>
-            <input id="is-subject" type="checkbox"/>
-            <label for="is-verb">Verbs</label>
-            <input id="is-verb" type="checkbox"/>
+            <div class="flex-column">
+                <div class="flex-row">
+                    <input id="is-subject" type="checkbox"/>
+                    <label for="is-subject">Subjects</label>
+                </div>
+                <div class="flex-row">
+                    <label for="is-verb">Verbs</label>
+                    <input id="is-verb" type="checkbox"/>
+                </div>
+            </div>
 
-
+            <div class="flex-row">
                 <label for="games">Select your game</label>
 
                 <select name="games" id="games">
@@ -36,7 +42,8 @@
                   <option value="leagueOfLegends">League of Legends</option>
                   <option value="pg13">PG13</option>
                 </select>
-
+            </div>
+            
             <button onclick="gotoPlay()">PLAY</button>
         </div>
 
