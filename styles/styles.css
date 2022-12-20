@@ -23,6 +23,7 @@ button{
 }
 .card{
     background-color: var(--green);
+    max-width: 40vw;
 }
 .select{
     max-width: 40vw;
