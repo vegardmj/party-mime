@@ -53,6 +53,3 @@ function updateCard(){
     let el = document.getElementById("card");
     el.innerHTML = cards[iterator].value;
 }
-
-
-init_1();
