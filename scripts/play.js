@@ -33,6 +33,7 @@ function test1(){
 function init(){
     let params = getParams();
     cards = getCards(params);
+    console.log(cards);
 }
 
 function newCard(){
