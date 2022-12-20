@@ -3,7 +3,10 @@ function getCards(params){
     let path = "/party-mime/database/" + params.folder + "/subjects.csv";
     let subjects = readFile(path);
     console.log('subjects', subjects)
+    console.log('content', content)
 }
+
+var content;
 
 function readFile(file){
     console.log("readTextFile")
@@ -17,6 +20,7 @@ function readFile(file){
             {
                 let allText = rawFile.responseText;
                 let temp = convertToJSON(allText);
+                content = temp;
                 return temp;
             }
         }
