@@ -1,3 +1,3 @@
 function gotoPlay(){
-    location.href = "/pages/play.html";
+    location.href = "/party-mime/pages/play.html";
 }
