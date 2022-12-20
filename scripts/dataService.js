@@ -9,7 +9,7 @@ function getCards(params){
 var content;
 
 function readFile(file){
-    console.log("readTextFile")
+    console.log("readTextFile", file)
     let rawFile = new XMLHttpRequest();
     rawFile.open("GET", file, false);
     rawFile.onreadystatechange = function ()
