@@ -3,7 +3,6 @@ function getCards(params){
     let path = "/party-mime/database/" + params.folder + "/subjects.csv";
     let subjects = readFile(path);
     console.log('subjects', subjects)
-
 }
 
 function readFile(file){
