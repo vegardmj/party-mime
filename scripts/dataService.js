@@ -1,13 +1,11 @@
 
 function getCards(params){
     let path = "/party-mime/database/" + params.folder + "/subjects.csv";
-    let myPromise = new Promise(function(myResolve, myReject) {
-        readFile(path);
-      });
+    let myPromise = new Promise(readFile(path));
       
-      myPromise.then(function(value) {
+    myPromise.then(function(value) {
         console.log(value);
-      });
+    });
 }
 
 
@@ -15,7 +13,7 @@ function readFile(file){
     console.log("readTextFile", file)
     fetch(file).then((content) => {
         let temp = content.text();
-        console.log(temp);
+        console.log('temp', temp);
         return temp;
     });
 }
