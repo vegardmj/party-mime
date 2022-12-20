@@ -1,23 +1,22 @@
 
 function getCards(params){
     let path = "/party-mime/database/" + params.folder + "/subjects.csv";
-    let myPromise = new Promise(
-        (resolve, reject) => {
-            let fileContent = 'readFile(path)';
-            if(fileContent != undefined){
-                resolve('Success' + fileContent);
-            }
-            else{
-                reject('Failed!');
-            }
-        });
+    let myPromise = new Promise((resolve, reject) => {
+        let fileContent = readFile(path);
+        if(fileContent != undefined){
+            resolve(fileContent);
+        }
+        else{
+            reject('Failed!');
+        }
+    });
       
+    myPromise.catch((err)=>{
+        alert(err + ' Could not find data');
+    });
     myPromise.then((value) => {
         console.log(value);
     });
-    myPromise.catch((err)=>{
-        alert(err + ' Could not find data');
-    })
 }
 
 
