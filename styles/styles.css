@@ -26,6 +26,9 @@ button{
     min-height: 2rem;
     min-width: 4rem;
 }
+button:hover{
+    cursor: pointer;
+}
 .card{
     background-color: var(--blue);
     min-height: 300px;
