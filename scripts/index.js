@@ -3,8 +3,8 @@ function gotoPlay(){
 }
 
 function saveCards(){
-    let filename = getFileName();
-    constructCards(filename).then((result)=>{
+    let files = getFiles();
+    constructCards(files).then((result)=>{
         let cards = result;
         console.log(cards);
         window.sessionStorage.setItem("cards", JSON.stringify(cards));
@@ -18,5 +18,11 @@ function getFileName(){
             filename = option.value;
         }
     })
-    return filename;
+    let config = [
+        {
+            filename: filename,
+            column: "value"
+        }
+    ]
+    return config;
 }

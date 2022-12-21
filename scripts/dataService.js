@@ -1,11 +1,13 @@
 
 
 
-function constructCards(filename){
+function constructCards(files){
+    let filename = files[0].filename;
+    let column = files[0].column;
     let path = "/party-mime/database/" + filename + ".csv";
     return new Promise((resolve, reject)=>{
         let result = readFile(path).then((value) => {
-            return shuffleArray(convertToJSON(value));
+            return shuffleArray(convertToJSON(value, column));
         })
         if(result != undefined){
             resolve(result);
@@ -30,18 +32,15 @@ function readFile(file){
     });
 }
 
-function convertToJSON(data){
+function convertToJSON(data, column){
     let dataList = data.split("\n");
     let rows = dataList;
     let columns = dataList[0].split(",");
+    let index = columns.indexOf(column);
     let datatable = [];
     for(let i = 1; i < rows.length; i++){
-        let row = {};
         let rowValues = rows[i].split(",");
-        for(let j = 0; j < columns.length; j++){
-            row[columns[j]] = rowValues[j];
-        }
-        datatable.push(row);
+        datatable.push(rowValues[index]);
     }
     return datatable;
 }
