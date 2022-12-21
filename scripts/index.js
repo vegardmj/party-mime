@@ -26,7 +26,7 @@ function getChoices(){
     console.log('getChoices')
     let choices = [];
     document.querySelectorAll("option").forEach((option)=>{
-        if(option.selected == true){
+        if(option.selected == true && option.value != null){
             choices.push({
                 filename: option.value,
                 column: option.dataset.column
