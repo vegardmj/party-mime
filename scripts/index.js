@@ -11,7 +11,7 @@ function saveCards(){
     }
 }
 
-function getCards(choices){
+async function getCards(choices){
     let cards = [];
     for(let choice of choices){
         if(choice.filename == "custom"){
@@ -26,6 +26,7 @@ function getCards(choices){
         }
 
     }
+    console.log('return shuffleArray(cards)', cards)
     return shuffleArray(cards);
 }
 
