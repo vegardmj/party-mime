@@ -1,15 +1,12 @@
 
-function getCards(params){
-    let path = "/party-mime/database/" + params.file + ".csv";
+
+
+function constructCards(filename){
+    let path = "/party-mime/database/" + filename + ".csv";
     return new Promise((resolve, reject)=>{
         let result = readFile(path).then((value) => {
-            let jsonList = shuffleArray(convertToJSON(value));
-            console.log("readFile.then(convertToJSON(value))", jsonList);
-            return jsonList;
+            return shuffleArray(convertToJSON(value));
         })
-        .catch((err)=>{
-            console.log(err + ' Could not find data');
-        });
         if(result != undefined){
             resolve(result);
         }
@@ -19,10 +16,8 @@ function getCards(params){
     })
 }
 
-
 function readFile(file){
-    console.log("readTextFile", file)
-    let myPromise = new Promise((resolve, reject)=>{
+    return new Promise((resolve, reject)=>{
         let content = fetch(file).then((result)=>{
             return result.text();
         });
@@ -32,10 +27,8 @@ function readFile(file){
         else{
             reject('Failed')
         }
-    })
-    return myPromise;
+    });
 }
-
 
 function convertToJSON(data){
     let dataList = data.split("\n");
@@ -69,4 +62,8 @@ function combineArrays(array1, array2){
     for(let i = 0; i<lengthToUse; i++){
         array.push(array1[i] + '\n' + array2[i]);
     }
+}
+function appendArrays(array1, array2){
+    array1.push(...array2);
+    return array1;
 }
