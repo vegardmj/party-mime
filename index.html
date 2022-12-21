@@ -17,17 +17,25 @@
             <div class="flex-column">
                 <h2>Select your game</h2>
 
-                <select class="select" name="games" id="games">
-                  <option value="dnd_monsters">DnD</option>
-                  <option value="people">People</option>
-                  <option value="lol_champions">League of Legends</option>
+                <select class="form-element" name="games" id="games">
+                  <option disabled selected value> -- None -- </option>
+                  <option value="dnd_monsters" data-column="value">DnD</option>
+                  <option value="people" data-column="value">People</option>
+                  <option value="lol_champions" data-column="value">League of Legends</option>
+                  <option value="custom" data-column="custom">From file</option>
                 </select>
+                <div class="flex-column">
+                    <input class="form-element" type="file" id="fileUpload"/>
+                    <label for="column">Column name</label>
+                    <input class="form-element" type="text" id="column"/>
+                </div>
+                
             </div>
+            <button onclick="saveCards()" style="margin-bottom: 1rem;">Save</button>
 
             <button onclick="gotoPlay()">PLAY</button>
+
+
         </div>
-
-        <button onclick="storeInSession()">store</button>
-
     </body>
 </html>
