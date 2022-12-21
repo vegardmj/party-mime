@@ -26,3 +26,20 @@ function getFiles(){
     ]
     return config;
 }
+
+
+function upload() {
+    let fileUpload = document.getElementById("fileUpload");
+    let regex = /^([a-zA-Z0-9\s_\\.\-:])+(.csv|.txt)$/;
+    if (regex.test(fileUpload.value.toLowerCase())) {
+            let reader = new FileReader();
+            reader.onload = function (e) {
+                let arr = shuffleArray(convertToJSON(e.target.result, "value"))
+                console.log('arr', arr);
+                window.sessionStorage.setItem("cards", JSON.stringify(arr));
+            }
+            reader.readAsText(fileUpload.files[0]);
+    } else {
+        alert("Please upload a valid CSV file.");
+    }
+}
