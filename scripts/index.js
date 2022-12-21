@@ -10,9 +10,7 @@ function gotoPlay(){
 
 
 
-import fs from 'fs';
+function storeInSession(){
+    window.sessionStorage.setItem("derp", "Heiasndnak sdlmløa sdma smd klasm dlkasmd lkasm dlaskm dlkasmd ");
 
-
-var files = fs.readdirSync('./');
-
-console.log(files);
+}

@@ -64,9 +64,9 @@ function shuffleArray(array){
 }
 
 function combineArrays(array1, array2){
-    const lengthToUse = Math.max(array1.length, array2.length)
+    const lengthToUse = Math.min(array1.length, array2.length)
     let array = [];
     for(let i = 0; i<lengthToUse; i++){
-        array.push(array1[i%array1.length] + '\n' + array2[i%array2.length]);
+        array.push(array1[i] + '\n' + array2[i]);
     }
 }
