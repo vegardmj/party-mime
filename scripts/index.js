@@ -10,6 +10,7 @@ function saveCards(){
 }
 
 function getCards(choices){
+    let cards = [];
     for(let choice of choices){
         if(choice.filename == "custom"){
             upload().then((result)=>{
@@ -30,7 +31,7 @@ function getChoices(){
     console.log('getChoices')
     let choices = [];
     document.querySelectorAll("option").forEach((option)=>{
-        if(option.selected == true && option.value != undefined){
+        if(option.selected == true && option.value){
             choices.push({
                 filename: option.value,
                 column: option.dataset.column
