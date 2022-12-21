@@ -54,17 +54,21 @@ function getChoices(){
 }
 
 function upload() {
-    let column = document.getElementById("column").value;
-    let fileUpload = document.getElementById("fileUpload");
-    let regex = /^([a-zA-Z0-9\s_\\.\-:])+(.csv|.txt)$/;
-    if (regex.test(fileUpload.value.toLowerCase())) {
-            let reader = new FileReader();
-            reader.onload = function (e) {
-                let arr = convertToJSON(e.target.result, column)
-                return arr;
-            }
-            reader.readAsText(fileUpload.files[0]);
-    } else {
-        alert("Please upload a valid CSV file.");
-    }
+    return new Promise((resolve, reject)=>{
+        let column = document.getElementById("column").value;
+        let fileUpload = document.getElementById("fileUpload");
+        let regex = /^([a-zA-Z0-9\s_\\.\-:])+(.csv|.txt)$/;
+        
+        if (regex.test(fileUpload.value.toLowerCase())) {
+                let reader = new FileReader();
+                reader.onload = (e) => {
+                    let arr = convertToJSON(e.target.result, column)
+                    resolve(arr);
+                }
+                reader.readAsText(fileUpload.files[0]);
+        } else {
+            alert("Please upload a valid CSV file.");
+            reject('Failed');
+        }
+    })
 }
