@@ -1,15 +1,9 @@
 function gotoPlay(){
-    let folder = 'none';
-    let files = '';
-    document.querySelectorAll("input").forEach((checkbox)=>{
-        if(checkbox.checked){
-            files += checkbox.name + "+";
-        }
-    })
+    let file = '';
     document.querySelectorAll("option").forEach((option)=>{
         if(option.selected == true){
-            folder = option.value;
+            file = option.value;
         }
     })
-    location.href = "/party-mime/play.html?folder=" + folder + "&files=" + files;
+    location.href = "/party-mime/play.html?file=" + file;
 }

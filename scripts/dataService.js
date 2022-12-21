@@ -1,6 +1,6 @@
 
 function getCards(params){
-    let path = "/party-mime/database/" + params.folder + "/subjects.csv";
+    let path = "/party-mime/database/" + params.file + ".csv";
     return new Promise((resolve, reject)=>{
         let result = readFile(path).then((value) => {
             let jsonList = shuffleArray(convertToJSON(value));
