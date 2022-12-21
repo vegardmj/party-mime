@@ -2,12 +2,10 @@
 
 
 function constructCards(file){
-    let filename = files.filename;
-    let column = files.column;
-    let path = "/party-mime/database/" + filename + ".csv";
+    let path = "/party-mime/database/" + file.filename + ".csv";
     return new Promise((resolve, reject)=>{
         let result = readFile(path).then((value) => {
-            return convertToJSON(value, column);
+            return convertToJSON(value, file.column);
         })
         if(result != undefined){
             resolve(result);
