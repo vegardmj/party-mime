@@ -34,6 +34,7 @@ function upload() {
     if (regex.test(fileUpload.value.toLowerCase())) {
             let reader = new FileReader();
             reader.onload = function (e) {
+                console.log('e.target.result', e.target.result);
                 let arr = shuffleArray(convertToJSON(e.target.result, "value"))
                 console.log('arr', arr);
                 window.sessionStorage.setItem("cards", JSON.stringify(arr));
