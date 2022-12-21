@@ -6,6 +6,7 @@ function saveCards(){
     let choices = getChoices();
     if(choices.length > 0){
         getCards(choices).then((cards)=>{
+            cards = shuffleArray(cards);
             window.sessionStorage.setItem("cards", JSON.stringify(cards));
         })
     }
@@ -14,27 +15,27 @@ function saveCards(){
 function getCards(choices){
     return new Promise((resolve, reject)=>{
         let cards = [];
+        let promises = [];
         for(let choice of choices){
             if(choice.filename == "custom"){
-                upload().then((result)=>{
-                    cards.push(...result);
-                })
+                promises.push(upload());
             }
             else{
-                constructCards(choice).then((result)=>{
-                    cards.push(...result);
-                })
+                promises.push(constructCards(choice))
             }
-
         }
-        
-        if(cards.length > 0){
-            resolve(shuffleArray(cards));
-        }
-        else{
-            reject('Failed')
-        }
-    })
+        Promise.all(promises).then((cardLists) => {
+            for(let c of cardLists){
+                cards.push(...c);
+            }
+            if(cards.length > 0){
+                resolve(cards);
+            }
+            else{
+                reject('Failed')
+            }
+          });
+    });
 }
 
 function getChoices(){
