@@ -18,23 +18,22 @@
                 <h2>Select your game</h2>
 
                 <select class="select" name="games" id="games">
-                  <option value="dnd_monsters">DnD</option>
-                  <option value="people">People</option>
-                  <option value="lol_champions">League of Legends</option>
+                  <option value="dnd_monsters" data-column="value">DnD</option>
+                  <option value="people" data-column="value">People</option>
+                  <option value="lol_champions" data-column="value">League of Legends</option>
+                  <option value="custom" data-column="custom">From file</option>
                 </select>
+                <div>
+                    <input type="file" id="fileUpload"/>
+                    <label for="column">Column name</label>
+                    <input type="text" id="column"/>
+                </div>
+                <button onclick="saveCards()">Save</button>
             </div>
 
             <button onclick="gotoPlay()">PLAY</button>
 
-        <button onclick="saveCards()">savecards</button>
 
-        <input type="file" id="fileUpload" />
-        <input type="button" id="upload" value="Upload" onclick="upload()" />
-        <hr />
-        <div id="dvCSV">
         </div>
-        </div>
-
-
     </body>
 </html>
