@@ -7,7 +7,7 @@ function constructCards(files){
     let path = "/party-mime/database/" + filename + ".csv";
     return new Promise((resolve, reject)=>{
         let result = readFile(path).then((value) => {
-            return shuffleArray(convertToJSON(value, column));
+            return convertToJSON(value, column);
         })
         if(result != undefined){
             resolve(result);

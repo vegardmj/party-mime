@@ -7,7 +7,9 @@ function saveCards(){
     let cards = [];
     for(let choice of choices){
         if(choice.filename == "custom"){
-            cards.push(...upload());
+            upload().then((result)=>{
+                cards.push(...result);
+            })
         }
         else{
             constructCards(choice).then((result)=>{
