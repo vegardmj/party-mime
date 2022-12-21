@@ -23,6 +23,7 @@ function saveCards(){
 }
 
 function getChoices(){
+    console.log('getChoices')
     let choices = [];
     document.querySelectorAll("option").forEach((option)=>{
         if(option.selected == true){
@@ -32,6 +33,7 @@ function getChoices(){
             });
         }
     })
+    console.log('choices', choices)
     return choices;
 }
 

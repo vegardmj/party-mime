@@ -1,9 +1,9 @@
 
 
 
-function constructCards(files){
-    let filename = files[0].filename;
-    let column = files[0].column;
+function constructCards(file){
+    let filename = files.filename;
+    let column = files.column;
     let path = "/party-mime/database/" + filename + ".csv";
     return new Promise((resolve, reject)=>{
         let result = readFile(path).then((value) => {
