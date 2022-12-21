@@ -4,9 +4,11 @@ function gotoPlay(){
 
 function saveCards(){
     let choices = getChoices();
-    getCards(choices).then((cards)=>{
-        window.sessionStorage.setItem("cards", JSON.stringify(cards));
-    })
+    if(choices.length > 0){
+        getCards(choices).then((cards)=>{
+            window.sessionStorage.setItem("cards", JSON.stringify(cards));
+        })
+    }
 }
 
 function getCards(choices){
