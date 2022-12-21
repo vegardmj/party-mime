@@ -11,7 +11,7 @@ function saveCards(){
     });
 }
 
-function getFileName(){
+function getFiles(){
     let filename = '';
     document.querySelectorAll("option").forEach((option)=>{
         if(option.selected == true){
