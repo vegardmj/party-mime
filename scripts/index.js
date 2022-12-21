@@ -11,23 +11,30 @@ function saveCards(){
     }
 }
 
-async function getCards(choices){
-    let cards = [];
-    for(let choice of choices){
-        if(choice.filename == "custom"){
-            upload().then((result)=>{
-                cards.push(...result);
-            })
+function getCards(choices){
+    return new Promise((resolve, reject)=>{
+        let cards = [];
+        for(let choice of choices){
+            if(choice.filename == "custom"){
+                upload().then((result)=>{
+                    cards.push(...result);
+                })
+            }
+            else{
+                constructCards(choice).then((result)=>{
+                    cards.push(...result);
+                })
+            }
+
+        }
+        
+        if(cards.length > 0){
+            resolve(shuffleArray(cards));
         }
         else{
-            constructCards(choice).then((result)=>{
-                cards.push(...result);
-            })
+            reject('Failed')
         }
-
-    }
-    console.log('return shuffleArray(cards)', cards)
-    return shuffleArray(cards);
+    })
 }
 
 function getChoices(){
