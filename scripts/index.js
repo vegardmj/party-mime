@@ -4,7 +4,12 @@ function gotoPlay(){
 
 function saveCards(){
     let choices = getChoices();
-    let cards = [];
+    getCards(choices).then((cards)=>{
+        window.sessionStorage.setItem("cards", JSON.stringify(cards));
+    })
+}
+
+function getCards(choices){
     for(let choice of choices){
         if(choice.filename == "custom"){
             upload().then((result)=>{
@@ -18,15 +23,14 @@ function saveCards(){
         }
 
     }
-    cards = shuffleArray(cards);
-    window.sessionStorage.setItem("cards", JSON.stringify(cards));
+    return shuffleArray(cards);
 }
 
 function getChoices(){
     console.log('getChoices')
     let choices = [];
     document.querySelectorAll("option").forEach((option)=>{
-        if(option.selected == true && option.value != null){
+        if(option.selected == true && option.value != undefined){
             choices.push({
                 filename: option.value,
                 column: option.dataset.column
